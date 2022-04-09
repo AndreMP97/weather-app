@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul className="list-inline mb-2">
                             <li className="list-inline-item">
-                                <a href="weather-app/disclaimer" className="link-light">Disclaimer</a>
+                                <Link to="weather-app/disclaimer" className="link-light">Disclaimer</Link>
                             </li>
                         </ul>
                         <p className="text-light small mb-4 mb-lg-0">&copy; Weather Forecast APP Demo. All Rights Reserved.</p>
