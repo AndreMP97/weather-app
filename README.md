@@ -1,1 +1,1 @@
-Demo APP
+https://github.com/StartBootstrap/startbootstrap-landing-page
