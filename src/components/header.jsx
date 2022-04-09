@@ -2,7 +2,7 @@ import Form from './form';
 
 const Header = () => {
     return (
-        <header className="masthead">
+        <header className="home">
             <div className="container position-relative">
                 <div className="row justify-content-center">
                     <div className="col-xl-6">

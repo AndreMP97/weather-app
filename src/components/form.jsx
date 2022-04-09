@@ -83,13 +83,13 @@ class Form extends Component {
                             <datalist id="locations"> {this.state.autoComplete.map((opt, i) => (<option key={i}>{opt}</option>))} </datalist>
                         </div>
                         <div className="col-auto">
-                            <button className="btn btn-dark btn-lg" id="submitButton" type="submit">FIND</button>
+                            <button className="btn btn-secondary btn-lg" id="submitButton" type="submit">FIND</button>
                         </div>
                         <Modal show={this.state.show} centered>
                             <Modal.Header><div className="text-danger mb-1">ERROR</div></Modal.Header>
                             <Modal.Body><div className="text-center text-danger mb-1">Please select a location!</div></Modal.Body>
                             <Modal.Footer>
-                                <Button variant="dark" onClick={this.handleClose}>Close</Button>
+                                <Button variant="secondary" onClick={this.handleClose}>Close</Button>
                             </Modal.Footer>
                         </Modal> 
                     </div>
