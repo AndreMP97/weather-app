@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-
 const Nav = () => {
     return (
         <nav className="navbar navbar-dark bg-dark static-top">
