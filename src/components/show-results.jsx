@@ -17,20 +17,22 @@ class showResults extends Component {
     constructor() {
         super();
         this.state = { 
-            loading: true,
+            loading: false,
             location: localStorage.getItem("location") || "",
             current: [],
             forecast: [],
             astro: [],
             date: "",
             currentcondition: "",
-            forecastcondition: ""
+            forecastcondition: "",
+            nav: "now"
         };
+        this.handleClick = this.handleClick.bind(this);
     }
 
     async componentDidMount() {
         this._isMounted = true;
-        try {
+        /*try {
             const response = await axios.get("https://api.weatherapi.com/v1/forecast.json",{
                 params: {
                     key: process.env.REACT_APP_WEATHER_API_KEY,
@@ -73,14 +75,209 @@ class showResults extends Component {
             this.setState({loading: true}, () => {
                 //console.log("loading", this.state.loading);
             });
-        }
+        }*/
     }
 
     componentWillUnmount() {
         this._isMounted = false;
     }
 
+    handleClick() {
+        if(this.state.nav === "now") {
+            this.setState({nav: "today"}, () => {
+                //console.log("nav " + this.state.show);
+            });
+        }
+        else if (this.state.nav === "today") {
+            this.setState({nav: "now"}, () => {
+                //console.log("nav " + this.state.show);
+            });
+        }
+    }
+
     render() {
+        if(this.state.loading === false && this.state.nav === "now") {
+            return(
+                <>
+                    <section className="features-icons bg-secondary text-center">
+                        <div className="container">
+                            <div className="card mb-3 bg-light">
+                                <div className="card-header">
+                                    {/*<img src={Location} alt="Location"/>*/}
+                                    <h5>Current Weather in </h5>
+                                    <h5>{this.state.location}</h5>
+                                    <h5>{this.state.currentcondition}</h5>
+                                    <ul className="nav nav-tabs card-header-tabs">
+                                        <li className="nav-item">
+                                            <a className="nav-link active" aria-current="true" onClick={this.handleClick}>Now</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link text-dark"  onClick={this.handleClick}>Today</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="card-body">
+                                    <div className="row row-cols-1 row-cols-md-3 g-4">
+                                        <div className="col">
+                                            <div className="card h-100 ">
+                                                <div className="card-body">
+                                                    <img src={Thermometer} alt="Thermometer" className="card-title"/>
+                                                    <h5 className="card-title">Temperature</h5>
+                                                    <p className="card-text">{this.state.current.temp_c}ºC / {this.state.current.temp_f}ºF</p>
+                                                    <p className="card-text">Feels like {this.state.current.feelslike_c}ºC / {this.state.current.feelslike_f}ºF</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Wind} alt="Wind" className="card-title"/>
+                                                    <h5 className="card-title">Wind</h5>
+                                                    <p className="card-text">Direction: {this.state.current.wind_dir} / {this.state.current.wind_degree}º</p>
+                                                    <p className="card-text">{this.state.current.wind_kph} kph / {this.state.current.wind_mph} mph</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Rain} alt="Rain" className="card-title"/>
+                                                    <h5 className="card-title">Precipitation</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.precip_mm} mm / {this.state.current.precip_in} in</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Pressure} alt="Pressure" className="card-title"/>
+                                                    <h5 className="card-title">Air Pressure</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.pressure_mb} mb / {this.state.current.pressure_in} in</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Humidity} alt="Humidity" className="card-title"/>
+                                                    <h5 className="card-title">Humidity</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.humidity}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Fog} alt="Fog" className="card-title"/>
+                                                    <h5 className="card-title">Visibility</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.vis_km} km / {this.state.current.vis_miles} miles</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )
+        }
+
+        else if(this.state.loading === false && this.state.nav === "today") {
+            return(
+                <>
+                    <section className="features-icons bg-secondary text-center">
+                        <div className="container">
+                            <div className="card mb-3 bg-light">
+                                <div className="card-header">
+                                    {/*<img src={Location} alt="Location"/>*/}
+                                    <h5>Forecast for</h5>
+                                    <h5>{this.state.location}</h5>
+                                    <h5>{this.state.currentcondition}</h5>
+                                    <ul className="nav nav-tabs card-header-tabs">
+                                        <li className="nav-item">
+                                            <a className="nav-link text-dark" aria-current="true"  onClick={this.handleClick}>Now</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link active"  onClick={this.handleClick}>Today</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="card-body">
+                                    <div className="row row-cols-1 row-cols-md-3 g-4">
+                                        <div className="col">
+                                            <div className="card h-100 ">
+                                                <div className="card-body">
+                                                    <img src={Thermometer} alt="Thermometer" className="card-title"/>
+                                                    <h5 className="card-title">Temperature</h5>
+                                                    <p className="card-text">{this.state.current.temp_c}ºC / {this.state.current.temp_f}ºF</p>
+                                                    <p className="card-text">Feels like {this.state.current.feelslike_c}ºC / {this.state.current.feelslike_f}ºF</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Wind} alt="Wind" className="card-title"/>
+                                                    <h5 className="card-title">Wind</h5>
+                                                    <p className="card-text">Direction: {this.state.current.wind_dir} / {this.state.current.wind_degree}º</p>
+                                                    <p className="card-text">{this.state.current.wind_kph} kph / {this.state.current.wind_mph} mph</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Rain} alt="Rain" className="card-title"/>
+                                                    <h5 className="card-title">Precipitation</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.precip_mm} mm / {this.state.current.precip_in} in</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Pressure} alt="Pressure" className="card-title"/>
+                                                    <h5 className="card-title">Air Pressure</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.pressure_mb} mb / {this.state.current.pressure_in} in</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Humidity} alt="Humidity" className="card-title"/>
+                                                    <h5 className="card-title">Humidity</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.humidity}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="card h-100">
+                                                <div className="card-body">
+                                                    <img src={Fog} alt="Fog" className="card-title"/>
+                                                    <h5 className="card-title">Visibility</h5>
+                                                    <p className="card-text"></p>
+                                                    <p className="card-text">{this.state.current.vis_km} km / {this.state.current.vis_miles} miles</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )
+        }
+
         if(this.state.loading === false) {
             return (
                 <>
