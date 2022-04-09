@@ -29,7 +29,7 @@ class showResults extends Component {
     async componentDidMount() {
         this._isMounted = true;
         try {
-            const response = await axios.get("http://api.weatherapi.com/v1/forecast.json",{
+            const response = await axios.get("https://api.weatherapi.com/v1/forecast.json",{
                 params: {
                     key: process.env.REACT_APP_WEATHER_API_KEY,
                     q: this.state.location,
