@@ -104,13 +104,13 @@ class showResults extends Component {
                                     <h5>{this.state.currentcondition}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <div className="nav-link active" aria-current="true" onClick={this.handleNow}>Now</div>
+                                            <a className="nav-link active" aria-current="true" href="#" onClick={this.handleNow}>Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" onClick={this.handleToday}>Today</div>
+                                            <a className="nav-link text-dark" href="#" onClick={this.handleToday}>Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</div>
+                                            <a className="nav-link text-dark" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -198,13 +198,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[0].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" aria-current="true" onClick={this.handleNow}>Now</div>
+                                            <a className="nav-link text-dark" href="#" aria-current="true" onClick={this.handleNow}>Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link active" onClick={this.handleToday}>Today</div>
+                                            <a className="nav-link active" href="#" onClick={this.handleToday}>Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</div>
+                                            <a className="nav-link text-dark" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -292,13 +292,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[1].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" aria-current="true" onClick={this.handleNow}>Now</div>
+                                            <a className="nav-link text-dark" aria-current="true" href="#" onClick={this.handleNow}>Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link text-dark" onClick={this.handleToday}>Today</div>
+                                            <a className="nav-link text-dark" href="#" onClick={this.handleToday}>Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <div className="nav-link active" onClick={this.handleTomorrow}>Tomorrow</div>
+                                            <a className="nav-link active" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
