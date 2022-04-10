@@ -4,8 +4,7 @@ const Nav = () => {
     return (
         <nav className="navbar navbar-dark bg-dark static-top">
             <div className="container">
-                <h1><Link to="weather-app" className="navbar-brand link-light">Weather Forecast</Link></h1>
-                {/*<a className="btn btn-primary" href="#signup">Sign Up</a>*/}
+                <h1><Link to="" className="navbar-brand link-light">Weather Forecast</Link></h1>
             </div>
         </nav>
     );

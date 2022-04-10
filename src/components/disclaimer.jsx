@@ -1,4 +1,5 @@
 const Disclaimer = () => {
+    localStorage.clear();
     return (
         <section className="disclaimer bg-secondary text-center">
             <div className="container">

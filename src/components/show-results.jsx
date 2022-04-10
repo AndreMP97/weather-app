@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 //import Location from '../assets/svg/location.svg';
 import Thermometer from '../assets/svg/thermometer.svg';
 import Wind from '../assets/svg/wind.svg';
@@ -99,13 +100,13 @@ class showResults extends Component {
                                     <h5>{this.state.current.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link active disabled" aria-current="true" href="#now">Now</a>
+                                            <Link to="" className="nav-link active disabled" aria-current="true">Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#today" onClick={this.handleToday}>Today</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#tomorrow" onClick={this.handleTomorrow}>Tomorrow</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -198,13 +199,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[0].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#now" aria-current="true" onClick={this.handleNow}>Now</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active disabled" href="#today">Today</a>
+                                            <Link to="" className="nav-link active disabled" aria-current="true" >Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#tomorrow" onClick={this.handleTomorrow}>Tomorrow</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -292,13 +293,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[1].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" aria-current="true" href="#now" onClick={this.handleNow}>Now</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#today" onClick={this.handleToday}>Today</a>
+                                            <Link to="" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active disabled" href="#tomorrow">Tomorrow</a>
+                                            <Link to="" className="nav-link active disabled" aria-current="true">Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
