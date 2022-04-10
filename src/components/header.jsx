@@ -1,7 +1,6 @@
 import Form from './form';
 
 const Header = () => {
-    localStorage.clear();
     return (
         <header className="home">
             <div className="container position-relative">

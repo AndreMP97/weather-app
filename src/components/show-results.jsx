@@ -100,13 +100,13 @@ class showResults extends Component {
                                     <h5>{this.state.current.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link active disabled" aria-current="true">Now</Link>
+                                            <Link to="#" className="nav-link active disabled" aria-current="true">Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -199,13 +199,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[0].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link active disabled" aria-current="true" >Today</Link>
+                                            <Link to="#" className="nav-link active disabled" aria-current="true" >Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -293,13 +293,13 @@ class showResults extends Component {
                                     <h5>{this.state.forecast[1].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="" className="nav-link active disabled" aria-current="true">Tomorrow</Link>
+                                            <Link to="#" className="nav-link active disabled" aria-current="true">Tomorrow</Link>
                                         </li>
                                     </ul>
                                 </div>
