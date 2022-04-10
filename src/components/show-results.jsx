@@ -21,7 +21,6 @@ class showResults extends Component {
             location: localStorage.getItem("location") || "",
             current: [],
             forecast: [],
-            currentcondition: "",
             nav: "now"
         };
         this.handleNow = this.handleNow.bind(this);
@@ -45,9 +44,6 @@ class showResults extends Component {
             if (response.data.current) {
                 this.setState({current: response.data.current}, () => {
                     //console.log("state", this.state.current);
-                });
-                this.setState({currentcondition: response.data.current.condition.text}, () => {
-                    //console.log("state", this.state.currentcondition);
                 });
             }
             if (response.data.forecast.forecastday) {
@@ -98,19 +94,18 @@ class showResults extends Component {
                         <div className="container">
                             <div className="card mb-3 bg-light">
                                 <div className="card-header">
-                                    {/*<img src={Location} alt="Location"/>*/}
-                                    <h5>Weather in </h5>
+                                    <img src={this.state.current.condition.icon} alt="Weather"/>
                                     <h5>{this.state.location}</h5>
-                                    <h5>{this.state.currentcondition}</h5>
+                                    <h5>{this.state.current.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link active" aria-current="true" href="#" onClick={this.handleNow}>Now</a>
+                                            <a className="nav-link active disabled" aria-current="true" href="#now">Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#" onClick={this.handleToday}>Today</a>
+                                            <a className="nav-link text-dark" href="#today" onClick={this.handleToday}>Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
+                                            <a className="nav-link text-dark" href="#tomorrow" onClick={this.handleTomorrow}>Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,6 +173,9 @@ class showResults extends Component {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="card-footer">
+                                    <small className="text-muted">Last updated {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -192,19 +190,19 @@ class showResults extends Component {
                         <div className="container">
                             <div className="card mb-3 bg-light">
                                 <div className="card-header">
-                                    {/*<img src={Location} alt="Location"/>*/}
-                                    <h5>Forecast for {this.state.forecast[0].date.split('-').reverse().join('-')} in</h5>
+                                    <img src={this.state.forecast[0].day.condition.icon} alt="Weather"/>
+                                    {/*<h5>Forecast for {this.state.forecast[0].date.split('-').reverse().join('-')} in</h5>*/}
                                     <h5>{this.state.location}</h5>
                                     <h5>{this.state.forecast[0].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#" aria-current="true" onClick={this.handleNow}>Now</a>
+                                            <a className="nav-link text-dark" href="#now" aria-current="true" onClick={this.handleNow}>Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="#" onClick={this.handleToday}>Today</a>
+                                            <a className="nav-link active disabled" href="#today">Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
+                                            <a className="nav-link text-dark" href="#tomorrow" onClick={this.handleTomorrow}>Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -286,19 +284,19 @@ class showResults extends Component {
                         <div className="container">
                             <div className="card mb-3 bg-light">
                                 <div className="card-header">
-                                    {/*<img src={Location} alt="Location"/>*/}
-                                    <h5>Forecast for {this.state.forecast[1].date.split('-').reverse().join('-')} in</h5>
+                                    <img src={this.state.forecast[1].day.condition.icon} alt="Weather"/>
+                                    {/*<h5>Forecast for {this.state.forecast[1].date.split('-').reverse().join('-')} in</h5>*/}
                                     <h5>{this.state.location}</h5>
                                     <h5>{this.state.forecast[1].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs">
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" aria-current="true" href="#" onClick={this.handleNow}>Now</a>
+                                            <a className="nav-link text-dark" aria-current="true" href="#now" onClick={this.handleNow}>Now</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link text-dark" href="#" onClick={this.handleToday}>Today</a>
+                                            <a className="nav-link text-dark" href="#today" onClick={this.handleToday}>Today</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="#" onClick={this.handleTomorrow}>Tomorrow</a>
+                                            <a className="nav-link active disabled" href="#tomorrow">Tomorrow</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -381,11 +379,9 @@ class showResults extends Component {
                                 <div className="row">
                                     <div className="col-lg-4"></div>
                                     <div className="col-lg-4">
-                                        
                                             <Spinner animation="border" variant="light" role="status">
                                                 <span className="visually-hidden">Loading...</span>
                                             </Spinner>
-                                        
                                     </div>
                                     <div className="col-lg-4"></div>
                                 </div>
