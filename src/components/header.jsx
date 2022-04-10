@@ -1,6 +1,7 @@
 import Form from './form';
 
 const Header = () => {
+    localStorage.removeItem("results");
     return (
         <header className="home">
             <div className="container position-relative">

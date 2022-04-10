@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul className="list-inline mb-2">
                             <li className="list-inline-item">
-                                <Link to="disclaimer" className="link-light">Disclaimer</Link>
+                                <Link to="disclaimer" className="link-light" onClick={() => localStorage.setItem("results", "true")}>Disclaimer</Link>
                             </li>
                         </ul>
                         <p className="text-light small mb-4 mb-lg-0">&copy; Weather Forecast APP Demo. All Rights Reserved.</p>

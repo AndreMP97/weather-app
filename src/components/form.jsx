@@ -4,6 +4,8 @@ import { Navigate } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 
 class Form extends Component {
+    _isMounted = false;
+
     constructor() {
         super();
         this.state = { 
@@ -17,6 +19,14 @@ class Form extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClose = this.handleClose.bind(this);
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     async fetchCity() {
@@ -58,6 +68,7 @@ class Form extends Component {
         if(this.state.autoComplete.includes(this.state.location)) {
             this.setState({results: true}, () => {
                 localStorage.setItem("location", this.state.location);
+                localStorage.setItem("results", "true");
             });
         }
         else {
