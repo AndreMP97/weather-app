@@ -6,6 +6,7 @@ import Disclaimer from './components/disclaimer';
 import Nav from './components/nav';
 import Footer from './components/footer';
 import ScrollToTop from './components/ScrollToTop';
+import Error from './components/404';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="result" element={<Result />}/>
           <Route path="disclaimer" element={<Disclaimer />}/>
+          <Route path="*" element={<Error />}/>
         </Routes>
         <Footer />
       </ScrollToTop>
