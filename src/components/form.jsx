@@ -53,6 +53,7 @@ class Form extends Component {
     }
 
     handleSubmit(event) {
+        localStorage.clear();
         event.preventDefault();
         if(this.state.autoComplete.includes(this.state.location)) {
             this.setState({results: true}, () => {

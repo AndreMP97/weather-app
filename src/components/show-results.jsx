@@ -22,7 +22,7 @@ class showResults extends Component {
             location: localStorage.getItem("location") || "",
             current: [],
             forecast: [],
-            nav: "now"
+            nav: localStorage.getItem("nav") || "now"
         };
         this.handleNow = this.handleNow.bind(this);
         this.handleToday = this.handleToday.bind(this);
@@ -69,21 +69,27 @@ class showResults extends Component {
         this._isMounted = false;
     }
 
-    handleNow() {
+    handleNow(event) {
+        event.preventDefault();
         this.setState({nav: "now"}, () => {
             //console.log("nav " + this.state.show);
+            localStorage.setItem("nav", this.state.nav);
         });
     }
 
-    handleToday() {
+    handleToday(event) {
+        event.preventDefault();
         this.setState({nav: "today"}, () => {
             //console.log("nav " + this.state.show);
+            localStorage.setItem("nav", this.state.nav);
         });
     }
 
-    handleTomorrow() {
+    handleTomorrow(event) {
+        event.preventDefault();
         this.setState({nav: "tomorrow"}, () => {
             //console.log("nav " + this.state.show);
+            localStorage.setItem("nav", this.state.nav);
         });
     }
 
