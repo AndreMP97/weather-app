@@ -130,20 +130,20 @@ class showResults extends Component {
                                                     <h5 className="card-title">Temperature</h5>
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">{Math.round(this.state.current.temp_c)}ºC</p>
+                                                                <p className="card-text">{Math.round(this.state.current.temp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">{Math.round(this.state.current.temp_f)}ºF</p>
+                                                                <p className="card-text">{Math.round(this.state.current.temp_f)} ºF</p>
                                                             </>
                                                     )}
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_c)}ºC</p>
+                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_f)}ºF</p>
+                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_f)} ºF</p>
                                                             </>
                                                     )}
                                                 </div>
@@ -277,25 +277,25 @@ class showResults extends Component {
                                                     <h5 className="card-title">Temperature</h5>
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_c)}ºC</p>
+                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)}ºF</p>
+                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)} ºF</p>
                                                             </>
                                                     )}
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)}ºC</p>
+                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)}ºF</p>
+                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)} ºF</p>
                                                             </>
                                                     )}
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)}ºC</p>
+                                                                <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
@@ -429,25 +429,25 @@ class showResults extends Component {
                                                     <h5 className="card-title">Temperature</h5>
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_c)}ºC</p>
+                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)}ºF</p>
+                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)} ºF</p>
                                                             </>
                                                     )}
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)}ºC</p>
+                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)}ºF</p>
+                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)} ºF</p>
                                                             </>
                                                     )}
                                                     {this.state.unit === "celsius" ? (
                                                             <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)}ºC</p>
+                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)} ºC</p>
                                                             </>
                                                         ) : (
                                                             <>
