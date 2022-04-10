@@ -13,7 +13,7 @@ function App() {
       <ScrollToTop>
         <Nav />
         <Routes>
-          <Route path="" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="result" element={<Result />}/>
           <Route path="disclaimer" element={<Disclaimer />}/>
           <Route path="*" element={<Error />}/>
