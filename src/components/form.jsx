@@ -65,7 +65,7 @@ class Form extends Component {
         var string = this.upperCase(event.target.value);
         //console.log(string);
         this.setState({location: string}, () => {
-                if (this.state.location.length >= 3 && !this.state.autoComplete.includes(this.state.location)) {
+                if (this.state.location.length >= 3 && !this.state.autoComplete.includes(this.state.location) && !this.state.location.includes(",")) {
                     //console.log("search");
                     this.fetchCity();
                 }
@@ -97,7 +97,6 @@ class Form extends Component {
     render() {
         if (this.state.results === false) {
             return (
-            
                 <form className="form-subscribe" id="contactForm" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="col">
