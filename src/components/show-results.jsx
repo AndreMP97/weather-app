@@ -14,7 +14,7 @@ class showResults extends Component {
             current: [],
             forecast: [],
             nav: localStorage.getItem("nav") || "current",
-            unit: "celsius"
+            unit: localStorage.getItem("unit") || "celsius"
         };
         this.handleCurrent = this.handleCurrent.bind(this);
         this.handleToday = this.handleToday.bind(this);
@@ -93,14 +93,14 @@ class showResults extends Component {
                 <>
                     <button type="button" className="btn btn-xs text-primary shadow-none">ºC</button>
                     <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"})}>ºF</button>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"}) & localStorage.setItem("unit", "fahrenheit")}>ºF</button>
                 </>
             );
         }
         else {
             return(
                 <>
-                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"})}>ºC</button>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"}) & localStorage.setItem("unit", "celsius")}>ºC</button>
                     <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
                     <button type="button" className="btn btn-xs text-primary shadow-none">ºF</button>
                 </>
