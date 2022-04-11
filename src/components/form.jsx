@@ -16,6 +16,7 @@ class Form extends Component {
             show: false
         };
         this.fetchCity = this.fetchCity.bind(this);
+        this.upperCase = this.upperCase.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -40,7 +41,7 @@ class Form extends Component {
             })
             //console.log(response);
             if (response.data.features) {
-                const locations = response.data.features.map((place) => place.place_name.toUpperCase());
+                const locations = response.data.features.map((place) => place.place_name);
                 this.setState({autoComplete: locations}, () => {
                     //console.log("state", this.state.autoComplete);
                 });
@@ -51,9 +52,19 @@ class Form extends Component {
         }
     }
 
+    upperCase(string) {
+        var splitString = string.toLowerCase().split(' ');
+        for (var i = 0; i < splitString.length; i++) {
+            splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
+        }
+        return splitString.join(' '); 
+     }
+
     handleChange(event) {
         event.preventDefault();
-        this.setState({location: event.target.value.toUpperCase()}, () => {
+        var string = this.upperCase(event.target.value);
+        //console.log(string);
+        this.setState({location: string}, () => {
                 if (this.state.location.length >= 3 && !this.state.autoComplete.includes(this.state.location)) {
                     //console.log("search");
                     this.fetchCity();
@@ -90,11 +101,11 @@ class Form extends Component {
                 <form className="form-subscribe" id="contactForm" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="col">
-                            <input className="form-control form-control-lg" id="city" type="text" placeholder="LOCATION" value={this.state.location} onChange={this.handleChange} autoComplete="off" list="locations" required/>
+                            <input className="form-control form-control-lg" id="city" type="text" placeholder="Location" value={this.state.location} onChange={this.handleChange} autoComplete="off" list="locations" required/>
                             <datalist id="locations"> {this.state.autoComplete.map((opt, i) => (<option key={i}>{opt}</option>))} </datalist>
                         </div>
                         <div className="col-auto">
-                            <button className="btn btn-secondary btn-lg" id="submitButton" type="submit">FIND</button>
+                            <button className="btn btn-secondary btn-lg" id="submitButton" type="submit"><i className="bi bi-search"></i></button>
                         </div>
                         <Modal show={this.state.show} centered>
                             <Modal.Header><div className="text-danger mb-1">ERROR</div></Modal.Header>
