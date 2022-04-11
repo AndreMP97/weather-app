@@ -13,16 +13,18 @@ class showResults extends Component {
             location: localStorage.getItem("location") || "",
             current: [],
             forecast: [],
-            nav: localStorage.getItem("nav") || "now",
+            nav: localStorage.getItem("nav") || "current",
             unit: "celsius"
         };
-        this.handleNow = this.handleNow.bind(this);
+        this.handleCurrent = this.handleCurrent.bind(this);
         this.handleToday = this.handleToday.bind(this);
         this.handleTomorrow = this.handleTomorrow.bind(this);
+        this.showUnits = this.showUnits.bind(this);
     }
 
     async componentDidMount() {
         this._isMounted = true;
+        localStorage.setItem("results", "true");
         try {
             const response = await axios.get("https://api.weatherapi.com/v1/forecast.json",{
                 params: {
@@ -61,9 +63,9 @@ class showResults extends Component {
         this._isMounted = false;
     }
 
-    handleNow(event) {
+    handleCurrent(event) {
         event.preventDefault();
-        this.setState({nav: "now"}, () => {
+        this.setState({nav: "current"}, () => {
             //console.log("nav " + this.state.show);
             localStorage.setItem("nav", this.state.nav);
         });
@@ -85,8 +87,29 @@ class showResults extends Component {
         });
     }
 
+    showUnits() {
+        if(this.state.unit === "celsius") {
+            return(
+                <>
+                    <button type="button" className="btn btn-xs text-primary shadow-none">ºC</button>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"})}>ºF</button>
+                </>
+            );
+        }
+        else {
+            return(
+                <>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"})}>ºC</button>
+                    <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
+                    <button type="button" className="btn btn-xs text-primary shadow-none">ºF</button>
+                </>
+            );
+        }
+    }
+
     render() {
-        if(this.state.loading === false && this.state.nav === "now") {
+        if(this.state.loading === false && this.state.nav === "current") {
             return(
                 <>
                     <section className="results bg-secondary text-center">
@@ -94,24 +117,12 @@ class showResults extends Component {
                             <div className="card mb-3 bg-light ">
                                 <div className="card-header">
                                     <img src={this.state.current.condition.icon} alt="Weather"/>
-                                    {this.state.unit === "celsius" ? (
-                                                <>
-                                                    <button type="button" className="btn btn-xs text-primary shadow-none">ºC</button>
-                                                    <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"})}>ºF</button>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"})}>ºC</button>
-                                                    <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                                    <button type="button" className="btn btn-xs text-primary shadow-none">ºF</button>
-                                                </>
-                                    )}
+                                    {this.showUnits()}
                                     <h5>{this.state.location}</h5>
                                     <h5>{this.state.current.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs nav-fill">
                                         <li className="nav-item">
-                                            <Link to="#" className="nav-link active disabled" aria-current="true">Now</Link>
+                                            <Link to="#" className="nav-link active disabled" aria-current="true">Current</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
@@ -241,24 +252,12 @@ class showResults extends Component {
                             <div className="card mb-3 bg-light">
                                 <div className="card-header">
                                     <img src={this.state.forecast[0].day.condition.icon} alt="Weather"/>
-                                    {this.state.unit === "celsius" ? (
-                                            <>
-                                                <button type="button" className="btn btn-xs text-primary shadow-none">ºC</button>
-                                                <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                                <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"})}>ºF</button>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"})}>ºC</button>
-                                                <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                                <button type="button" className="btn btn-xs text-primary shadow-none">ºF</button>
-                                            </>
-                                    )}
+                                    {this.showUnits()}
                                     <h5>{this.state.location}</h5>
                                     <h5>{this.state.forecast[0].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs nav-fill">
                                         <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link to="#" className="nav-link active disabled" aria-current="true" >Today</Link>
@@ -393,24 +392,12 @@ class showResults extends Component {
                             <div className="card mb-3 bg-light">
                                 <div className="card-header">
                                     <img src={this.state.forecast[1].day.condition.icon} alt="Weather"/>
-                                    {this.state.unit === "celsius" ? (
-                                        <>
-                                            <button type="button" className="btn btn-xs text-primary shadow-none">ºC</button>
-                                            <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                            <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "fahrenheit"})}>ºF</button>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <button type="button" className="btn btn-xs text-secondary shadow-none" onClick={() => this.setState({unit: "celsius"})}>ºC</button>
-                                            <button type="button" className="btn btn-xs text-secondary shadow-none disabled">|</button>
-                                            <button type="button" className="btn btn-xs text-primary shadow-none">ºF</button>
-                                        </>
-                                    )}
+                                    {this.showUnits()}
                                     <h5>{this.state.location}</h5>
                                     <h5>{this.state.forecast[1].day.condition.text}</h5>
                                     <ul className="nav nav-tabs card-header-tabs nav-fill">
                                         <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleNow}>Now</Link>
+                                            <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>

@@ -16,7 +16,7 @@ const Nav = () => {
             <nav className="navbar navbar-dark bg-dark static-top">
                 <div className="container">
                     <h1><Link to="/" className="navbar-brand link-light">Weather Forecast</Link></h1>
-                    <Link to="/" className="bi bi-arrow-left btn-dark" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
+                    <Link to="/" className="bi bi-arrow-left btn-dark shadow-none" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
                 </div>
             </nav>
         );

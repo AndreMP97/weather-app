@@ -68,7 +68,6 @@ class Form extends Component {
         if(this.state.autoComplete.includes(this.state.location)) {
             this.setState({results: true}, () => {
                 localStorage.setItem("location", this.state.location);
-                localStorage.setItem("results", "true");
             });
         }
         else {

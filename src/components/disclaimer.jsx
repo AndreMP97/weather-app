@@ -1,4 +1,5 @@
 const Disclaimer = () => {
+    localStorage.setItem("results", "true");
     return (
         <section className="disclaimer bg-secondary text-center">
             <div className="container">
@@ -30,7 +31,7 @@ const Disclaimer = () => {
                             </div>
                             <div className="card-body">
                                 <p className="card-text"><a href='https://github.com/StartBootstrap/startbootstrap-landing-page' className="link-primary">CSS</a></p>
-                                <p className="card-text"><a href='https://www.svgrepo.com/' className="link-primary">SVG Logos</a></p>
+                                <p className="card-text"><a href='https://getbootstrap.com/docs/5.0/getting-started/introduction/' className="link-primary">Bootstrap v5.0</a></p>
                                 <p className="card-text"><a href='https://unsplash.com/photos/i2Q-6YN6uSg' className="link-primary">Background Photo</a></p>
                             </div>
                         </div>
