@@ -5,7 +5,7 @@ import './css/styles.css';
 import Mainpage from './components/mainpage';
 import Result from './components/show-results';
 import Disclaimer from './components/disclaimer';
-import Nav from './components/nav';
+import Header from './components/header';
 import Footer from './components/footer';
 import ScrollToTop from './components/ScrollToTop';
 import Error from './components/404';
@@ -13,7 +13,7 @@ import Error from './components/404';
 function App() {
   return (
       <ScrollToTop>
-        <Nav />
+        <Header />
         <Routes>
           <Route path="/" element={<Mainpage />} />
           <Route path="result" element={<Result />}/>
