@@ -99,12 +99,12 @@ class FormComponent extends Component {
             return (    
                 <form onSubmit={this.handleSubmit}>
                     <div class="mb-3">
-                        <div className="row justify-content-md-center">
+                        <div className="row justify-content-center">
                             <div className="col-8">
                                 <input className="form-control form-control-lg" id="city" type="text" placeholder="Location" value={this.state.location} onChange={this.handleChange} autoComplete="off" list="locations" required/>
                                 <datalist id="locations"> {this.state.autoComplete.map((opt, i) => (<option key={i}>{opt}</option>))} </datalist>
                             </div>
-                            <div className="col-md-auto">
+                            <div className="col-auto">
                                 <button className="btn btn-secondary btn-lg shadow-none" id="submitButton" type="submit"><i className="bi bi-search"></i></button>
                             </div>
                             <Modal show={this.state.show} centered>
