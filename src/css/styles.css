@@ -81,3 +81,9 @@
   left: 0;
   opacity: 0.5;
 }
+
+footer.footer {
+  position: absolute !important;
+  width: 100% !important;
+  bottom: 0 !important;
+}
