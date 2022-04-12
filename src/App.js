@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './css/styles.css';
-import Home from './components/home';
+import Mainpage from './components/mainpage';
 import Result from './components/show-results';
 import Disclaimer from './components/disclaimer';
 import Nav from './components/nav';
@@ -15,7 +15,7 @@ function App() {
       <ScrollToTop>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Mainpage />} />
           <Route path="result" element={<Result />}/>
           <Route path="disclaimer" element={<Disclaimer />}/>
           <Route path="*" element={<Error />}/>
