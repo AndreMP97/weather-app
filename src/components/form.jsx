@@ -98,7 +98,7 @@ class FormComponent extends Component {
         if (this.state.results === false) {
             return (    
                 <form onSubmit={this.handleSubmit}>
-                    <div class="mb-3">
+                    <div className="mb-3">
                         <div className="row justify-content-center">
                             <div className="col-8">
                                 <input className="form-control form-control-lg" id="city" type="text" placeholder="Location" value={this.state.location} onChange={this.handleChange} autoComplete="off" list="locations" required/>
