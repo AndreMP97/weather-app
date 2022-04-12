@@ -3,7 +3,7 @@ import Form from './form';
 const MainPage = () => {
     localStorage.removeItem("results");
     return (
-        <header className="home">
+        <main className="home">
             <div className="container position-relative">
                 <div className="row justify-content-center">
                     <div className="col-xl-6">
@@ -14,7 +14,7 @@ const MainPage = () => {
                     </div>
                 </div>
             </div>
-        </header>
+        </main>
     );
 }
 
