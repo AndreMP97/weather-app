@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer bg-dark" style={{"padding-top": "1rem", "padding-bottom": "1rem"}}>
+        <footer className="footer bg-dark" style={{"paddingTop": "1rem", "paddingBottom": "1rem"}}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 h-100 text-center text-lg-start my-auto">
