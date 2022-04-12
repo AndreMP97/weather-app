@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './css/styles.css';
 import Home from './components/home';
 import Result from './components/show-results';

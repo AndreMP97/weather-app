@@ -232,7 +232,7 @@ class showResults extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card-footer">
+                                <div className="card-footer" style={{"padding-top": "0.25rem", "padding-bottom": "0.7rem"}}>
                                     {/*console.log("Debug epoch " + Date.now())*/}
                                     {/*console.log("API epoch " + this.state.current.last_updated_epoch)*/}
                                     <small className="text-muted">Last updated {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>

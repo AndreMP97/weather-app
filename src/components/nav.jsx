@@ -13,7 +13,7 @@ const Nav = () => {
 
     if(nav === true) {
         return(
-            <nav className="navbar navbar-dark bg-dark static-top">
+            <nav className="navbar navbar-dark bg-dark static-top" style={{"padding-top": "0.25rem", "padding-bottom": "0.25rem"}}>
                 <div className="container">
                     <h1><Link to="/" className="navbar-brand link-light">Weather Forecast</Link></h1>
                     <Link to="/" className="bi bi-arrow-left btn-dark shadow-none" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
@@ -23,7 +23,7 @@ const Nav = () => {
     }
     else {
         return (
-            <nav className="navbar navbar-dark bg-dark static-top">
+            <nav className="navbar navbar-dark bg-dark static-top" style={{"padding-top": "0.25rem", "padding-bottom": "0.25rem"}}>
                 <div className="container">
                     <h1><Link to="/" className="navbar-brand link-light">Weather Forecast</Link></h1>
                 </div>

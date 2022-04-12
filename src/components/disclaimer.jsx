@@ -30,7 +30,7 @@ const Disclaimer = () => {
                                 <h5 className="card-title">Sources</h5>
                             </div>
                             <div className="card-body">
-                                <p className="card-text"><a href='https://github.com/StartBootstrap/startbootstrap-landing-page' className="link-primary">CSS</a></p>
+                                <p className="card-text"><a href='https://github.com/StartBootstrap/startbootstrap-landing-page' className="link-primary">Based on this CSS</a></p>
                                 <p className="card-text"><a href='https://getbootstrap.com/docs/5.0/getting-started/introduction/' className="link-primary">Bootstrap v5.0</a></p>
                                 <p className="card-text"><a href='https://unsplash.com/photos/i2Q-6YN6uSg' className="link-primary">Background Photo</a></p>
                             </div>
