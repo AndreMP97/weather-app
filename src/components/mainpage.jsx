@@ -4,7 +4,7 @@ const MainPage = () => {
     localStorage.removeItem("results");
     return (
         <main className="home">
-            <div className="container homecontainer position-relative">
+            <div className="container position-relative">
                 <div className="row justify-content-center">
                     <div className="col-xl-6">
                         <div className="text-center text-white">

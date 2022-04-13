@@ -11,7 +11,8 @@
   background-color: #343a40;
   background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
   background-size: cover;
-  height: 100vh;
+  padding-top: 17.65rem;
+  padding-bottom: 17.65rem;
 }
 .home:before {
   content: "";
@@ -79,18 +80,4 @@
   top: 0;
   left: 0;
   opacity: 0.5;
-}
-
-.homecontainer {
-  top: 30%;
-}
-
-body {
-  overflow: hidden !important;
-}
-
-footer.footer {
-  position: absolute !important;
-  width: 100% !important;
-  bottom: 0 !important;
 }
