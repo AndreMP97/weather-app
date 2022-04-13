@@ -1,8 +1,8 @@
 const Disclaimer = () => {
     localStorage.setItem("results", "true");
     return (
-        <section className="disclaimer bg-secondary text-center">
-            <div className="container">
+        <section className="disclaimer">
+            <div className="container text-center">
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col">
                         <div className="card h-100">
