@@ -6,78 +6,64 @@
   border-radius: 0.2rem;
 }
 
-.home {
+.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 17.65rem;
-  padding-bottom: 17.65rem;
-}
-.home:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
-.disclaimer {
+.masthead-results {
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 16.06rem;
-  padding-bottom: 16.06rem;
-}
-.disclaimer:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
-.loading {
-  position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 20.8rem;
-  padding-bottom: 20.8rem;
+.pt-6 {
+  padding-top: 4.5rem !important;
 }
-.loading:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+.pb-6 {
+  padding-bottom: 4.5rem !important;
 }
 
-.results {
-  position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 1.9rem;
-  padding-bottom: 0.9rem;
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead-results {
+    min-height: 100vh;
+    padding: 0;
+  }
+  .footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
 }
-.results:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+
+@media (max-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead-results {
+    min-height: 100vh;
+    padding: 0;
+  }
 }

@@ -97,15 +97,15 @@ class FormComponent extends Component {
     render() {
         if (this.state.results === false) {
             return (    
-                <form onSubmit={this.handleSubmit}>
-                    <div className="mb-3">
-                        <div className="row justify-content-center">
-                            <div className="col-8">
+                <form className="form-signup" onSubmit={this.handleSubmit}>
+                    <div className="mb-5">
+                        <div className="row input-group-newsletter justify-content-center">
+                            <div className="col-9">
                                 <input className="form-control form-control-lg" id="city" type="text" placeholder="Location" value={this.state.location} onChange={this.handleChange} autoComplete="off" list="locations" required/>
                                 <datalist id="locations"> {this.state.autoComplete.map((opt, i) => (<option key={i}>{opt}</option>))} </datalist>
                             </div>
                             <div className="col-auto">
-                                <button className="btn btn-dark btn-lg shadow-none" id="submitButton" type="submit"><i className="bi bi-search"></i></button>
+                                <button className="btn btn-secondary btn-lg shadow-none" id="submitButton" type="submit"><i className="bi bi-search"></i></button>
                             </div>
                             <Modal show={this.state.show} centered>
                                 <Modal.Header><div className="text-danger mb-1">ERROR</div></Modal.Header>

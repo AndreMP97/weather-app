@@ -13,25 +13,28 @@ const Nav = () => {
 
     if(nav === true) {
         return(
-            <header>
-                <nav className="navbar navbar-dark bg-dark static-top" style={{"paddingTop": "0.25rem", "paddingBottom": "0.25rem"}}>
-                    <div className="container">
-                        <h1><Link to="/" className="navbar-brand link-light">Weather Forecast</Link></h1>
-                        <Link to="/" className="bi bi-arrow-left btn-dark shadow-none" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
-                    </div>
-                </nav>
-            </header>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+                <div className="container px-4 px-lg-5">
+                    <Link to="/" className="navbar-brand link-light">Weather Forecast</Link>
+                    <Link to="/" className="bi bi-arrow-left btn-dark shadow-none" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
+                </div>
+            </nav>
         );
     }
     else {
         return (
-            <header>
-                <nav className="navbar navbar-dark bg-dark static-top" style={{"paddingTop": "0.25rem", "paddingBottom": "0.25rem"}}>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+                <div className="container px-4 px-lg-5">
+                    <Link to="/" className="navbar-brand link-light">Weather Forecast</Link>
+                </div>
+            </nav>
+            /*<header>
+                <nav className="navbar navbar-dark bg-dark" style={{"paddingTop": "0.25rem", "paddingBottom": "0.25rem"}}>
                     <div className="container">
                         <h1><Link to="/" className="navbar-brand link-light">Weather Forecast</Link></h1>
                     </div>
                 </nav>
-            </header>
+            </header>*/
         );
     }
 }

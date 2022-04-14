@@ -112,130 +112,134 @@ class showResults extends Component {
         if(this.state.loading === false && this.state.nav === "current") {
             return(
                 <>
-                    <section className="results bg-secondary text-center">
-                        <div className="container">
-                            <div className="card mb-3 bg-light ">
-                                <div className="card-header">
-                                    <img src={this.state.current.condition.icon} alt="Weather"/>
-                                    {this.showUnits()}
-                                    <h5>{this.state.location}</h5>
-                                    <h5>{this.state.current.condition.text}</h5>
-                                    <ul className="nav nav-tabs card-header-tabs nav-fill">
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link active disabled" aria-current="true">Current</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                                        <div className="col">
-                                            <div className="card h-100 ">
-                                                <div className="card-body">
-                                                    <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Temperature</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">{Math.round(this.state.current.temp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">{Math.round(this.state.current.temp_f)} ºF</p>
-                                                            </>
-                                                    )}
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Feels like {Math.round(this.state.current.feelslike_f)} ºF</p>
-                                                            </>
-                                                    )}
+                    <section className="masthead-results">
+                        <div className="container pt-6 pb-6 px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                            <div className="row text-center">
+                                <div className="col">
+                                    <div className="card mb-3 bg-light">
+                                        <div className="card-header">
+                                            <img src={this.state.current.condition.icon} alt="Weather"/>
+                                            {this.showUnits()}
+                                            <h5>{this.state.location}</h5>
+                                            <h5>{this.state.current.condition.text}</h5>
+                                            <ul className="nav nav-tabs card-header-tabs nav-fill">
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link active disabled" aria-current="true">Current</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="row row-cols-1 row-cols-md-3 g-4">
+                                                <div className="col">
+                                                    <div className="card h-100 ">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Temperature</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">{Math.round(this.state.current.temp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">{Math.round(this.state.current.temp_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Feels like {Math.round(this.state.current.feelslike_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Feels like {Math.round(this.state.current.feelslike_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Wind</h5>
+                                                            <p className="card-text">Direction: {this.state.current.wind_dir} | {this.state.current.wind_degree}º</p>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">{Math.round(this.state.current.wind_kph)} kph</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">{Math.round(this.state.current.wind_mph)} mph</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Precipitation</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">{this.state.current.precip_mm} mm</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">{this.state.current.precip_in} in</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-clouds" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Clouds</h5>
+                                                            <p className="card-text">{this.state.current.cloud}%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Humidity</h5>
+                                                            <p className="card-text">{this.state.current.humidity}%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Visibility</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">{this.state.current.vis_km} km</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">{this.state.current.vis_miles} miles</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Wind</h5>
-                                                    <p className="card-text">Direction: {this.state.current.wind_dir} | {this.state.current.wind_degree}º</p>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">{Math.round(this.state.current.wind_kph)} kph</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">{Math.round(this.state.current.wind_mph)} mph</p>
-                                                            </>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Precipitation</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">{this.state.current.precip_mm} mm</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">{this.state.current.precip_in} in</p>
-                                                            </>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-clouds" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Clouds</h5>
-                                                    <p className="card-text">{this.state.current.cloud}%</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Humidity</h5>
-                                                    <p className="card-text">{this.state.current.humidity}%</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Visibility</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">{this.state.current.vis_km} km</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">{this.state.current.vis_miles} miles</p>
-                                                            </>
-                                                    )}
-                                                </div>
-                                            </div>
+                                        <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.7rem"}}>
+                                            {/*console.log("Debug epoch " + Date.now())*/}
+                                            {/*console.log("API epoch " + this.state.current.last_updated_epoch)*/}
+                                            <small className="text-muted">Last updated {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.7rem"}}>
-                                    {/*console.log("Debug epoch " + Date.now())*/}
-                                    {/*console.log("API epoch " + this.state.current.last_updated_epoch)*/}
-                                    <small className="text-muted">Last updated {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>
                                 </div>
                             </div>
                         </div>
@@ -247,131 +251,135 @@ class showResults extends Component {
         else if(this.state.loading === false && this.state.nav === "today") {
             return(
                 <>
-                    <section className="results bg-secondary text-center">
-                        <div className="container">
-                            <div className="card mb-3 bg-light">
-                                <div className="card-header">
-                                    <img src={this.state.forecast[0].day.condition.icon} alt="Weather"/>
-                                    {this.showUnits()}
-                                    <h5>{this.state.location}</h5>
-                                    <h5>{this.state.forecast[0].day.condition.text}</h5>
-                                    <ul className="nav nav-tabs card-header-tabs nav-fill">
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link active disabled" aria-current="true" >Today</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                                        <div className="col">
-                                            <div className="card h-100 ">
-                                                <div className="card-body">
-                                                    <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Temperature</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)} ºF</p>
-                                                            </>
-                                                    )}
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)} ºF</p>
-                                                            </>
-                                                    )}
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_f)}ºF</p>
-                                                            </>
-                                                    )}
-                                                </div>
-                                            </div>
+                    <section className="h-100">
+                        <div className="container result-container h-100 text-center">
+                            <div className="row justify-content-center text-center h-100 align-content-center">
+                                <div className="col">
+                                    <div className="card mb-3 bg-light">
+                                        <div className="card-header">
+                                            <img src={this.state.forecast[0].day.condition.icon} alt="Weather"/>
+                                            {this.showUnits()}
+                                            <h5>{this.state.location}</h5>
+                                            <h5>{this.state.forecast[0].day.condition.text}</h5>
+                                            <ul className="nav nav-tabs card-header-tabs nav-fill">
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link active disabled" aria-current="true" >Today</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleTomorrow}>Tomorrow</Link>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-sun" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Sun</h5>
-                                                    <p className="card-text">Sunrise: {this.state.forecast[0].astro.sunrise}</p>
-                                                    <p className="card-text">Sunset: {this.state.forecast[0].astro.sunset}</p>
+                                        <div className="card-body">
+                                            <div className="row row-cols-1 row-cols-md-3 g-4">
+                                                <div className="col">
+                                                    <div className="card h-100 ">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Temperature</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_f)}ºF</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Precipitation</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Total: {this.state.forecast[0].day.totalprecip_mm} mm</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Total: {this.state.forecast[0].day.totalprecip_in} in</p>
-                                                            </>
-                                                    )}
-                                                    <p className="card-text">Chance of rain: {this.state.forecast[0].day.daily_chance_of_rain}%</p>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-sun" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Sun</h5>
+                                                            <p className="card-text">Sunrise: {this.state.forecast[0].astro.sunrise}</p>
+                                                            <p className="card-text">Sunset: {this.state.forecast[0].astro.sunset}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Wind</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text ">Max: {Math.round(this.state.forecast[0].day.maxwind_kph)} kph</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text ">Max: {Math.round(this.state.forecast[0].day.maxwind_mph)} mph</p>
-                                                            </>
-                                                    )}
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Precipitation</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Total: {this.state.forecast[0].day.totalprecip_mm} mm</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Total: {this.state.forecast[0].day.totalprecip_in} in</p>
+                                                                    </>
+                                                            )}
+                                                            <p className="card-text">Chance of rain: {this.state.forecast[0].day.daily_chance_of_rain}%</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Humidity</h5>
-                                                    <p className="card-text">Average: {this.state.forecast[0].day.avghumidity}%</p>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Wind</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text ">Max: {Math.round(this.state.forecast[0].day.maxwind_kph)} kph</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text ">Max: {Math.round(this.state.forecast[0].day.maxwind_mph)} mph</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Visibility</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Average: {this.state.forecast[0].day.avgvis_km} km</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Average: {this.state.forecast[0].day.avgvis_miles} miles</p>
-                                                            </>
-                                                    )}
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Humidity</h5>
+                                                            <p className="card-text">Average: {this.state.forecast[0].day.avghumidity}%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Visibility</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Average: {this.state.forecast[0].day.avgvis_km} km</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Average: {this.state.forecast[0].day.avgvis_miles} miles</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -387,138 +395,142 @@ class showResults extends Component {
         else if(this.state.loading === false && this.state.nav === "tomorrow") {
             return(
                 <>
-                    <section className="results bg-secondary text-center">
-                        <div className="container">
-                            <div className="card mb-3 bg-light">
-                                <div className="card-header">
-                                    <img src={this.state.forecast[1].day.condition.icon} alt="Weather"/>
-                                    {this.showUnits()}
-                                    <h5>{this.state.location}</h5>
-                                    <h5>{this.state.forecast[1].day.condition.text}</h5>
-                                    <ul className="nav nav-tabs card-header-tabs nav-fill">
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="#" className="nav-link active disabled" aria-current="true">Tomorrow</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                                        <div className="col">
-                                            <div className="card h-100 ">
-                                                <div className="card-body">
-                                                    <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Temperature</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)} ºF</p>
-                                                            </>
-                                                    )}
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)} ºF</p>
-                                                            </>
-                                                    )}
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)} ºC</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_f)}ºF</p>
-                                                            </>
-                                                    )}
-                                                </div>
-                                            </div>
+                    <section className="h-100">
+                        <div className="container result-container h-100 text-center">
+                            <div className="row justify-content-center text-center h-100 align-content-center">
+                                <div className="col">
+                                    <div className="card mb-3 bg-light">
+                                        <div className="card-header">
+                                            <img src={this.state.forecast[1].day.condition.icon} alt="Weather"/>
+                                            {this.showUnits()}
+                                            <h5>{this.state.location}</h5>
+                                            <h5>{this.state.forecast[1].day.condition.text}</h5>
+                                            <ul className="nav nav-tabs card-header-tabs nav-fill">
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleCurrent}>Current</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link text-dark" onClick={this.handleToday}>Today</Link>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <Link to="#" className="nav-link active disabled" aria-current="true">Tomorrow</Link>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-sun" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Sun</h5>
-                                                    <p className="card-text">Sunrise: {this.state.forecast[1].astro.sunrise}</p>
-                                                    <p className="card-text">Sunset: {this.state.forecast[1].astro.sunset}</p>
+                                        <div className="card-body">
+                                            <div className="row row-cols-1 row-cols-md-3 g-4">
+                                                <div className="col">
+                                                    <div className="card h-100 ">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-thermometer-half" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Temperature</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)} ºF</p>
+                                                                    </>
+                                                            )}
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)} ºC</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_f)}ºF</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Precipitation</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Total: {this.state.forecast[1].day.totalprecip_mm} mm</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Total: {this.state.forecast[1].day.totalprecip_in} in</p>
-                                                            </>
-                                                    )}
-                                                    <p className="card-text">Chance of rain: {this.state.forecast[1].day.daily_chance_of_rain}%</p>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-sun" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Sun</h5>
+                                                            <p className="card-text">Sunrise: {this.state.forecast[1].astro.sunrise}</p>
+                                                            <p className="card-text">Sunset: {this.state.forecast[1].astro.sunset}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Wind</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_kph)} kph</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_mph)} mph</p>
-                                                            </>
-                                                    )}
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-rain" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Precipitation</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Total: {this.state.forecast[1].day.totalprecip_mm} mm</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Total: {this.state.forecast[1].day.totalprecip_in} in</p>
+                                                                    </>
+                                                            )}
+                                                            <p className="card-text">Chance of rain: {this.state.forecast[1].day.daily_chance_of_rain}%</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Humidity</h5>
-                                                    <p className="card-text">Average: {this.state.forecast[1].day.avghumidity}%</p>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-wind" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Wind</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_kph)} kph</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_mph)} mph</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="col">
-                                            <div className="card h-100">
-                                                <div className="card-body">
-                                                    <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
-                                                    <h5 className="card-title">Visibility</h5>
-                                                    {this.state.unit === "celsius" ? (
-                                                            <>
-                                                                <p className="card-text">Average: {this.state.forecast[1].day.avgvis_km} km</p>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <p className="card-text">Average: {this.state.forecast[1].day.avgvis_miles} miles</p>
-                                                            </>
-                                                    )}
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-moisture" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Humidity</h5>
+                                                            <p className="card-text">Average: {this.state.forecast[1].day.avghumidity}%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="card h-100">
+                                                        <div className="card-body">
+                                                            <i className="bi bi-cloud-fog2" style={{"fontSize": "3rem", "color": "bs-dark"}} aria-hidden="true"></i>
+                                                            <h5 className="card-title">Visibility</h5>
+                                                            {this.state.unit === "celsius" ? (
+                                                                    <>
+                                                                        <p className="card-text">Average: {this.state.forecast[1].day.avgvis_km} km</p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="card-text">Average: {this.state.forecast[1].day.avgvis_miles} miles</p>
+                                                                    </>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>)
                     </section>
                 </>
             )
@@ -527,16 +539,14 @@ class showResults extends Component {
         else {
            return(
                 <>
-                    <section className="loading bg-secondary text-center">
-                            <div className="container">
+                    <section className="masthead">
+                        <div className="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                                 <div className="row">
-                                    <div className="col-lg-4"></div>
                                     <div className="col-lg-4">
                                             <Spinner animation="border" variant="light" role="status">
                                                 <span className="visually-hidden">Loading...</span>
                                             </Spinner>
                                     </div>
-                                    <div className="col-lg-4"></div>
                                 </div>
                             </div>
                     </section>
