@@ -2,7 +2,7 @@ const Disclaimer = () => {
     localStorage.setItem("results", "true");
     return (
         <section className="masthead">
-            <div className="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div className="container px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div className="row row-cols-1 row-cols-md-3 g-4 text-center align-content-center">
                     <div className="col">
                         <div className="card h-100">

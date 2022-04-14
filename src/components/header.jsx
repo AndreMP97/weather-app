@@ -14,7 +14,7 @@ const Nav = () => {
     if(nav === true) {
         return(
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-                <div className="container px-4 px-lg-5">
+                <div className="container px-lg-5">
                     <Link to="/" className="navbar-brand link-light">Weather Forecast</Link>
                     <Link to="/" className="bi bi-arrow-left btn-dark shadow-none" style={{"fontSize": "1.5rem"}} aria-hidden="true"></Link>
                 </div>
@@ -24,7 +24,7 @@ const Nav = () => {
     else {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-                <div className="container px-4 px-lg-5">
+                <div className="container px-lg-5">
                     <Link to="/" className="navbar-brand link-light">Weather Forecast</Link>
                 </div>
             </nav>

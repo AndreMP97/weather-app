@@ -36,7 +36,7 @@
   padding-top: 4.5rem !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .masthead {
     height: 100vh;
     padding: 0;
@@ -57,7 +57,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .masthead {
     height: 100vh;
     padding: 0;

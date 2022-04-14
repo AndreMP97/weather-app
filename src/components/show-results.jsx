@@ -136,7 +136,7 @@ class showResults extends Component {
             return(
                 <>
                     <section className="masthead-results">
-                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
+                        <div className="container pt-6 pb-6 px-lg-5 h-100 align-items-center justify-content-center">
                             <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
@@ -275,7 +275,7 @@ class showResults extends Component {
             return(
                 <>
                     <section className="masthead-results">
-                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
+                        <div className="container pt-6 pb-6 px-lg-5 h-100 align-items-center justify-content-center">
                             <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
@@ -422,7 +422,7 @@ class showResults extends Component {
             return(
                 <>
                     <section className="masthead-results">
-                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
+                        <div className="container pt-6 pb-6 px-lg-5 h-100 align-items-center justify-content-center">
                             <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
@@ -569,7 +569,7 @@ class showResults extends Component {
            return(
                 <>
                     <section className="masthead">
-                        <div className="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                        <div className="container px-lg-5 d-flex h-100 align-items-center justify-content-center">
                                 <div className="row">
                                     <div className="col-lg-4">
                                             <Spinner animation="border" variant="light" role="status">
