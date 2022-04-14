@@ -87,6 +87,29 @@ class showResults extends Component {
         });
     }
 
+    parseDate() {
+        if (this.state.nav === "today") {
+            const [year, month, day] = this.state.forecast[0].date.split('-');
+            if (this.state.unit === "celsius") {
+                return(
+                    <small className="text-muted">Today: {day}-{month}-{year}</small>
+                );
+            }
+            else
+                return(<small className="text-muted">Today: {month}-{day}-{year}</small>);
+        }
+        else if (this.state.nav === "tomorrow") {
+            const [year, month, day] = this.state.forecast[1].date.split('-');
+            if (this.state.unit === "celsius") {
+                return(
+                    <small className="text-muted">Tomorrow: {day}-{month}-{year}</small>
+                );
+            }
+            else
+                return(<small className="text-muted">Tomorrow: {month}-{day}-{year}</small>);
+        }
+    }
+
     showUnits() {
         if(this.state.unit === "celsius") {
             return(
@@ -113,7 +136,7 @@ class showResults extends Component {
             return(
                 <>
                     <section className="masthead-results">
-                        <div className="container pt-6 pb-6 px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
                             <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
@@ -234,10 +257,10 @@ class showResults extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.7rem"}}>
+                                        <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.4rem"}}>
                                             {/*console.log("Debug epoch " + Date.now())*/}
                                             {/*console.log("API epoch " + this.state.current.last_updated_epoch)*/}
-                                            <small className="text-muted">Last updated {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>
+                                            <small className="text-muted">Last updated: {parseInt((Date.now()/1000 - this.state.current.last_updated_epoch)/60)} minutes ago</small>
                                         </div>
                                     </div>
                                 </div>
@@ -251,9 +274,9 @@ class showResults extends Component {
         else if(this.state.loading === false && this.state.nav === "today") {
             return(
                 <>
-                    <section className="h-100">
-                        <div className="container result-container h-100 text-center">
-                            <div className="row justify-content-center text-center h-100 align-content-center">
+                    <section className="masthead-results">
+                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
+                            <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
                                         <div className="card-header">
@@ -289,7 +312,7 @@ class showResults extends Component {
                                                                         <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)} ºF</p>
                                                                     </>
                                                             )}
-                                                            {this.state.unit === "celsius" ? (
+                                                            {/*this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)} ºC</p>
                                                                     </>
@@ -297,7 +320,7 @@ class showResults extends Component {
                                                                     <>
                                                                         <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)} ºF</p>
                                                                     </>
-                                                            )}
+                                                            )*/}
                                                             {this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)} ºC</p>
@@ -383,6 +406,9 @@ class showResults extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                        <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.4rem"}}>
+                                            {this.parseDate()}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -395,9 +421,9 @@ class showResults extends Component {
         else if(this.state.loading === false && this.state.nav === "tomorrow") {
             return(
                 <>
-                    <section className="h-100">
-                        <div className="container result-container h-100 text-center">
-                            <div className="row justify-content-center text-center h-100 align-content-center">
+                    <section className="masthead-results">
+                        <div className="container pt-6 pb-6 px-4 px-lg-5 h-100 align-items-center justify-content-center">
+                            <div className="row text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
                                         <div className="card-header">
@@ -433,7 +459,7 @@ class showResults extends Component {
                                                                         <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)} ºF</p>
                                                                     </>
                                                             )}
-                                                            {this.state.unit === "celsius" ? (
+                                                            {/*this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)} ºC</p>
                                                                     </>
@@ -441,7 +467,7 @@ class showResults extends Component {
                                                                     <>
                                                                         <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)} ºF</p>
                                                                     </>
-                                                            )}
+                                                            )*/}
                                                             {this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)} ºC</p>
@@ -526,6 +552,9 @@ class showResults extends Component {
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div className="card-footer" style={{"paddingTop": "0.25rem", "paddingBottom": "0.4rem"}}>
+                                            {this.parseDate()}
                                         </div>
                                     </div>
                                 </div>
