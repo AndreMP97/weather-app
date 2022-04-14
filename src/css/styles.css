@@ -67,3 +67,14 @@
     padding: 0;
   }
 }
+
+@media (min-height: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead-results {
+    height: 100vh;
+    padding: 0;
+  }
+}
