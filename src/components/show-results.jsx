@@ -276,7 +276,7 @@ class showResults extends Component {
                 <>
                     <section className="masthead-results">
                         <div className="container pt-6 pb-6 px-lg-5 h-100 align-items-center justify-content-center">
-                            <div className="row text-center">
+                            <div className="row h-100 align-items-center justify-content-center text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
                                         <div className="card-header">
@@ -423,7 +423,7 @@ class showResults extends Component {
                 <>
                     <section className="masthead-results">
                         <div className="container pt-6 pb-6 px-lg-5 h-100 align-items-center justify-content-center">
-                            <div className="row text-center">
+                            <div className="row h-100 align-items-center justify-content-center text-center">
                                 <div className="col">
                                     <div className="card mb-3 bg-light">
                                         <div className="card-header">
