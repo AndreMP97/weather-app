@@ -312,15 +312,6 @@ class showResults extends Component {
                                                                         <p className="card-text">Min: {Math.round(this.state.forecast[0].day.mintemp_f)} ºF</p>
                                                                     </>
                                                             )}
-                                                            {/*this.state.unit === "celsius" ? (
-                                                                    <>
-                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_c)} ºC</p>
-                                                                    </>
-                                                                ) : (
-                                                                    <>
-                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[0].day.avgtemp_f)} ºF</p>
-                                                                    </>
-                                                            )*/}
                                                             {this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Max: {Math.round(this.state.forecast[0].day.maxtemp_c)} ºC</p>
@@ -459,15 +450,6 @@ class showResults extends Component {
                                                                         <p className="card-text">Min: {Math.round(this.state.forecast[1].day.mintemp_f)} ºF</p>
                                                                     </>
                                                             )}
-                                                            {/*this.state.unit === "celsius" ? (
-                                                                    <>
-                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_c)} ºC</p>
-                                                                    </>
-                                                                ) : (
-                                                                    <>
-                                                                        <p className="card-text">Average: {Math.round(this.state.forecast[1].day.avgtemp_f)} ºF</p>
-                                                                    </>
-                                                            )*/}
                                                             {this.state.unit === "celsius" ? (
                                                                     <>
                                                                         <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxtemp_c)} ºC</p>
@@ -515,11 +497,11 @@ class showResults extends Component {
                                                             <h5 className="card-title">Wind</h5>
                                                             {this.state.unit === "celsius" ? (
                                                                     <>
-                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_kph)} kph</p>
+                                                                        <p className="card-text ">Max: {Math.round(this.state.forecast[1].day.maxwind_kph)} kph</p>
                                                                     </>
                                                                 ) : (
                                                                     <>
-                                                                        <p className="card-text">Max: {Math.round(this.state.forecast[1].day.maxwind_mph)} mph</p>
+                                                                        <p className="card-text ">Max: {Math.round(this.state.forecast[1].day.maxwind_mph)} mph</p>
                                                                     </>
                                                             )}
                                                         </div>
@@ -559,7 +541,7 @@ class showResults extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>)
+                        </div>
                     </section>
                 </>
             )
